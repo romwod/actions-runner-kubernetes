@@ -49,8 +49,11 @@ apt-get install -y \
     ;
 
 # Install Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-chown -R runner /usr/local/bin/docker-compose
+mkdir -p /opt/dc
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /opt/dc/docker-compose
+chmod +x /opt/dc/docker-compose
+chown -R runner /opt/dc/docker-compose
+
 
 # Install Node.js and yarn
 sudo apt-get install curl

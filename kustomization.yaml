@@ -14,8 +14,8 @@ images:
     newTag: latest
     # newTag: v0.0.0
 
-patchesStrategicMerge:
+# patchesStrategicMerge:
   # Useful for refs that change frequently, like master
   # - kustomize/imagePullPolicyAlways.yaml
   # Useful for refs that are not expected to change, like tags
-  - kustomize/imagePullPolicyIfNotPresent.yaml
+  # - kustomize/imagePullPolicyIfNotPresent.yaml

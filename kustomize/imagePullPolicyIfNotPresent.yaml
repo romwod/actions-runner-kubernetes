@@ -7,5 +7,5 @@ spec:
     spec:
       containers:
         - name: runner
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           

@@ -18,7 +18,7 @@ USER runner
 ENV COMPOSE_DOCKER_CLI_BUILD=1
 ENV DOCKER_CLI_EXPERIMENTAL=enabled
 ENV DOCKER_BUILDKIT=1
-ENV PATH="/opt/docker-compose:${PATH}"
+ENV PATH="/opt/dc:${PATH}"
 COPY *.sh ./
 RUN /bin/bash ./test.sh
 ENTRYPOINT ["/bin/bash", "./entrypoint.sh"]

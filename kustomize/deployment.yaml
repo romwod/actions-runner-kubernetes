@@ -5,7 +5,7 @@ metadata:
   labels:
     app: actions-runner
 spec:
-  replicas: 10
+  replicas: 7
   selector:
     matchLabels:
       app: actions-runner
@@ -21,6 +21,9 @@ spec:
           image: us.gcr.io/app-romwod/romwod-ghrunner:latest
           # image: docker.pkg.github.com/urcomputeringpal/actions-runner-kubernetes/actions-runner-kubernetes-dev:latest
           imagePullPolicy: Always
+          args:
+          - -cpus
+          - "4"
           envFrom:
             - secretRef:
                 name: actions-runner  

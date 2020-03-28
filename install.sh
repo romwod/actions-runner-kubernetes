@@ -48,6 +48,16 @@ apt-get install -y \
     sudo \
     ;
 
+# Install Docker Compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# Install Node.js and yarn
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install -y yarn
+
 # Hook up the runner user with passwordless sudo
 # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#administrative-privileges-of-github-hosted-runners
 echo "runner ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/runner

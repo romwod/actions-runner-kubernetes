@@ -6,13 +6,16 @@ bases:
   - ./kustomize
 
 images:
-  - name: docker.pkg.github.com/urcomputeringpal/actions-runner-kubernetes/actions-runner-kubernetes-dev
-    newName: docker.pkg.github.com/urcomputeringpal/actions-runner-kubernetes/actions-runner-kubernetes
-    # newTag: v2.164.0-ucp1
-    newTag: master
+  # - name: docker.pkg.github.com/urcomputeringpal/actions-runner-kubernetes/actions-runner-kubernetes-dev
+  #   newName: docker.pkg.github.com/urcomputeringpal/actions-runner-kubernetes/actions-runner-kubernetes
+  #   newTag: v2.165.2-ucp1
+  - name: us.gcr.io/app-romwod/romwod-ghrunner
+    newName: us.gcr.io/app-romwod/romwod-ghrunner
+    newTag: latest
+    # newTag: v0.0.0
 
 patchesStrategicMerge:
   # Useful for refs that change frequently, like master
-  - kustomize/imagePullPolicyAlways.yaml
+  # - kustomize/imagePullPolicyAlways.yaml
   # Useful for refs that are not expected to change, like tags
-  # - kustomize/imagePullPolicyIfNotPresent.yaml
+  - kustomize/imagePullPolicyIfNotPresent.yaml

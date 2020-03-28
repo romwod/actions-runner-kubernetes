@@ -10,6 +10,9 @@ COPY install.sh /root/
 # Install and update the system in one tidy layer
 ARG ACTIONS_RUNNER_VERSION="2.165.2"
 ENV ACTIONS_RUNNER_VERSION=$ACTIONS_RUNNER_VERSION
+ENV COMPOSE_DOCKER_CLI_BUILD=1
+ENV DOCKER_BUILDKIT=1
+ENV DOCKER_CLI_EXPERIMENTAL=enabled
 RUN /bin/bash /root/install.sh
 
 # Run as the runner user instead of root

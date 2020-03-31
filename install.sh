@@ -28,6 +28,8 @@ apt-get update
 
 # Create a runner user
 useradd -ms /bin/bash runner
+groupadd docker
+usermod -aG docker runner
 
 # Install the runner and its dependencies
 mkdir -p /opt/actions-runner && cd /opt/actions-runner

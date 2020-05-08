@@ -1,9 +1,8 @@
 #!/bin/bash
 set -e
 
-# Use /home/runner/work as both PWD and the work directory configured for the runner
-mkdir -p work
-cd work
+# Use /work as both PWD and the work directory configured for the runner
+cd /work
 
 # Configure the runner
 /opt/actions-runner/config.sh \
@@ -11,7 +10,8 @@ cd work
     --token "${TOKEN}" \
     --unattended \
     --url "${REPOSITORY}" \
-    --work "${PWD}"
+    --work /work
 
 # Off to the races
-exec /bin/bash /opt/actions-runner/run.sh
+cd /opt/actions-runner
+/opt/actions-runner/bin/runsvc.sh
